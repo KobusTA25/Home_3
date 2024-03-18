@@ -1,12 +1,21 @@
 package org.max.home;
 
+import org.hamcrest.Matchers;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.apache.commons.lang3.StringUtils;
+import org.max.lesson3.seminar.accuweather.location.Location;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.List;
 
+import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.max.lesson3.seminar.accuweather.AccuweatherAbstractTest.getApiKey;
+import static org.max.lesson3.seminar.accuweather.AccuweatherAbstractTest.getBaseUrl;
+
 public class CompositePatternTest {
 
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -32,8 +41,6 @@ public class CompositePatternTest {
 
         compositeRoot = composite2;
     }
-
-
     @Test
     public void testCompositePattern() {
         compositeRoot.operation();

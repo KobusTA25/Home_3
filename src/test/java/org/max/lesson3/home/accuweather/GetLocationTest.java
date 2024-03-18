@@ -16,7 +16,7 @@ public class GetLocationTest extends AccuweatherAbstractTest{
 
         List<Location> response = given()
                 .queryParam("apikey", getApiKey())
-                .queryParam("q", "Moscow")
+                .queryParam("q", "Minsk")
                 .when()
                 .get(getBaseUrl()+"/locations/v1/cities/search")
                 .then()
@@ -25,7 +25,7 @@ public class GetLocationTest extends AccuweatherAbstractTest{
                 .extract()
                 .body().jsonPath().getList(".", Location.class);
 
-        Assertions.assertEquals(24,response.size());
-        Assertions.assertEquals("Moscow", response.get(0).getEnglishName());
+        Assertions.assertEquals(2,response.size());
+        Assertions.assertEquals("Minsk", response.get(0).getEnglishName());
     }
 }
